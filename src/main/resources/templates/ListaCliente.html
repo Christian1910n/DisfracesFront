@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title >CLIENTES</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      color: #444;
+      text-align: left;
+      background-color: #f2f2f2;
+      margin-bottom: 20px;
+    }
+
+    th {
+      background-color: #555;
+      color: #fff;
+      padding: 10px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+
+  </style>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+
+<span th:text="${cliente.nombres_cliente}"></span>
+<span th:text="${cliente.apellidos_cliente}"></span>
+<br>
+<span th:if="${cliente.estado_cliente == true}" th:text="${cliente.estado_cliente}"></span>
+<span th:if="${cliente.estado_cliente == false}" th:text="'EL CLIENTE ESTA INACTIVO'"></span>
+
+<h1>Tabla de Clientes</h1>
+<div th:if="${clientes.size()==0}">no hay clientes en la lista</div>
+<table th:if="${clientes.size()>0}">
+  <thead>
+  <tr>
+    <th>ID Cliente</th>
+    <th>Cedula</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Direccion</th>
+    <th>Estado</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="c: ${clientes}">
+    <td th:text="${c.id_cliente}"></td>
+    <td th:text="${c.cedula}"></td>
+    <td th:text="${c.nombres_cliente}"></td>
+    <td th:text="${c.apellidos_cliente}"></td>
+    <td th:text="${c.direccion_cliente}"></td>
+    <td th:text="${c.estado_cliente}"></td>
+    <td><a th:href="@{/app/mix-params(nombres=${c.nombres_cliente + ' ' + c.apellidos_cliente},estado=${c.estado_cliente})}"
+    ><i class="far fa-eye"></i></a></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

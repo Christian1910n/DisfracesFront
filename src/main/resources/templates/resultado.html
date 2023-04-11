@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Cliente</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    li span:first-child {
+      font-weight: bold;
+      width: 120px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<h2>Formulario de Cliente</h2>
+<ul>
+  <li><span>Cédula:</span> <span th:text="${cliente.cedula}"></span></li>
+  <li><span>Nombres:</span> <span th:text="${cliente.nombres_cliente}"></span></li>
+  <li><span>Apellidos:</span> <span th:text="${cliente.apellidos_cliente}"></span></li>
+  <li><span>Dirección:</span> <span th:text="${cliente.direccion_cliente}"></span></li>
+  <li><span>Correo:</span> <span th:text="${cliente.correo}"></span></li>
+  <li><span>Edad:</span> <span th:text="${cliente.edad}"></span></li>
+  <li><span>Fecha:</span> <span th:text="${cliente.fecha_nacimiento}"></span></li>
+</ul>
+</body>
+</html>

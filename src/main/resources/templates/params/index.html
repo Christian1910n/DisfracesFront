@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar parametros</title>
+</head>
+<body>
+<h1>Enviar parametros del request HTTP GET - URL</h1>
+<ul>
+  <li>
+    <a th:href="@{/string(texto= 'Que tal Christian')}">/string?texto=Que tal Christian!</a>
+  </li>
+    <li>
+        <a th:href="@{/string(texto= 'Que tal Juan Andres')}">/string?texto=Que tal Juan Andres!</a>
+    </li>
+</ul>
+</body>
+</html>

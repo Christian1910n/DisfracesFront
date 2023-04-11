@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alquiler</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      color: #444;
+      text-align: left;
+      background-color: #f2f2f2;
+      margin-bottom: 20px;
+    }
+
+    th {
+      background-color: #555;
+      color: #fff;
+      padding: 10px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+
+  </style>
+</head>
+<body>
+<h1>Tabla de Alquilers</h1>
+<div th:if="${alquiler.size()==0}">no hay clientes en la lista</div>
+<table th:if="${alquiler.size()>0}">
+  <thead>
+  <tr>
+    <th>ID Alquiler</th>
+    <th>Nombre Cliente</th>
+    <th>Descripcion Disfraz</th>
+    <th>Fecha Prestamo</th>
+    <th>Fecha devolucion</th>
+    <th>Comentarios</th>
+    <th>Cantidad</th>
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="c: ${alquiler}">
+    <td th:text="${c.id_alquiler}"></td>
+    <td th:text="${c.cliente.nombres_cliente}"></td>
+    <td th:text="${c.disfraz.descripcion_disfraz}"></td>
+    <td th:text="${c.fecha_prestamo}"></td>
+    <td th:text="${c.fecha_devolucion}"></td>
+    <td th:text="${c.comentarios_alquiler}"></td>
+    <td th:text="${c.cantidad_disfraces}"></td>
+    <td th:text="${c.total_alquiler}"></td>
+    <td><a th:href="@{/app/paht/{id}(id=${c.id_alquiler})}"><i class="far fa-eye"></i></a></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

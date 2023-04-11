@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Alquiler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0px;
+        }
+        /* Estilos de formulario */
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 20px;
+            grid-column-gap: 10px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="date"],
+        input[type="number"],
+        textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Formulario de Alquiler</h1>
+    <form action="procesar_formulario.php" method="post">
+        <div class="form-group">
+            <label for="fecha-prestamo">Fecha de prestamo:</label>
+            <input type="date" id="fecha-prestamo" name="fecha_prestamo" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha-devolucion">Fecha de devolucion:</label>
+            <input type="date" id="fecha-devolucion" name="fecha_devolucion" required>
+        </div>
+        <div class="form-group">
+            <label for="comentarios-alquiler">Comentarios de alquiler:</label>
+            <textarea id="comentarios-alquiler" name="comentarios_alquiler"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="cantidad-disfraces">Cantidad de disfraces:</label>
+            <input type="number" id="cantidad-disfraces" name="cantidad_disfraces" required>
+        </div>
+        <div class="form-group">
+            <label for="total-alquiler">Total de Alquiler:</label>
+            <input type="number" id="total-alquiler" name="total_alquiler" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Enviar</button>
+        </div>
+    </form>
+</div>
